@@ -1,0 +1,39 @@
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Bot Application1.dll.config
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Bot Application1.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Bot Application1.pdb
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Autofac.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Chronic.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.Bot.Builder.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.Bot.Connector.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.IdentityModel.Protocol.Extensions.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.Rest.ClientRuntime.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.WindowsAzure.Configuration.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Newtonsoft.Json.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.IdentityModel.Tokens.Jwt.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.Net.Http.Formatting.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.Web.Http.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.Web.Http.WebHost.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Autofac.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.Bot.Builder.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.Bot.Connector.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.IdentityModel.Protocol.Extensions.pdb
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.IdentityModel.Protocol.Extensions.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.Rest.ClientRuntime.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Microsoft.WindowsAzure.Configuration.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\Newtonsoft.Json.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.IdentityModel.Tokens.Jwt.pdb
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.IdentityModel.Tokens.Jwt.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.Net.Http.Formatting.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.Web.Http.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\System.Web.Http.WebHost.xml
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\ar\Microsoft.Bot.Builder.resources.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\en\Microsoft.Bot.Builder.resources.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\es\Microsoft.Bot.Builder.resources.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\fa\Microsoft.Bot.Builder.resources.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\fr\Microsoft.Bot.Builder.resources.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\ja\Microsoft.Bot.Builder.resources.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\ru\Microsoft.Bot.Builder.resources.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\bin\zh-hans\Microsoft.Bot.Builder.resources.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\obj\Debug\Bot Application1.csprojResolveAssemblyReference.cache
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\obj\Debug\Bot Application1.dll
+H:\OneDrive\Visual Studio 2012\Projects\Bot Application1\Bot Application1\obj\Debug\Bot Application1.pdb
