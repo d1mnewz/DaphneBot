@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace HelloBot
 {
-    //[BotAuthentication]
+    [BotAuthentication]
     public class MessagesController : ApiController
     {
         /// <summary>
