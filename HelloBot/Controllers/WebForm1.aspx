@@ -12,6 +12,6 @@
     
     </div>
     </form>
-    <asp:Label ID="resultStr" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="resultStr" runat="server" Text=""></asp:Label>
 </body>
 </html>
