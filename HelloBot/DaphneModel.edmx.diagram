@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0c61df5537d941f49b0efb1f061b7269" Name="Diagram1">
+        <EntityTypeShape EntityType="DaphneBotModel.QA" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaphneBotModel.Question" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaphneBotModel.Status" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaphneBotModel.Team" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DaphneBotModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DaphneBotModel.FK__QAs__questionId__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="DaphneBotModel.FK__QAs__statusId__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="DaphneBotModel.FK__Statuses__userId__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="DaphneBotModel.FK__Users__teamId__18EBB532" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
