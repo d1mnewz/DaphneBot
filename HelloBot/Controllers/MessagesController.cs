@@ -1,22 +1,37 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
+using System.Web.UI.WebControls;
 using Microsoft.Bot.Connector;
-using Newtonsoft.Json;
+
 
 namespace HelloBot
 {
+
+
+
     [BotAuthentication]
     public class MessagesController : ApiController
     {
+
+        [HttpGet]
+        [Route("api/messages/test")]
+        public IHttpActionResult Get()
+        {
+            List<int> l = new List<int>() {42, 420, 4, 2};
+
+            return Ok(l);
+        }
+
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
         /// </summary>
+        /// 
+        /// 
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
             if (activity.Type == ActivityTypes.Message)
