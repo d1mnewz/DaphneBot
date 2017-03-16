@@ -1,10 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="HelloBot.Controllers.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginForm.aspx.cs" Inherits="HelloBot.Controllers.LoginForm" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-
     <title></title>
 </head>
 <body>
@@ -14,16 +13,20 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <div class="panel panel-default">
-        <img src="../resources/logo.png" alt="Mountain View" style="width:150px;height:75px;">
+        <a href="WebForm1.aspx"><img src="../resources/logo.png" alt="Mountain View" style="width:150px;height:75px;"></a>
         <button type="button" class="btn btn-primary">Teams</button>
         <button type="button" class="btn btn-primary">Users</button>
         <a href="LoginForm.aspx"><button type="button" style="float:right;margin-top:1.4%" class="btn btn-primary">Login</button></a>
     </div>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
+    <form id="form1" runat="server" method="get" action="">
+        <div>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter slackteam" style="width:30%;margin-left:1%;margin-top:1%" />
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style="width:30%;margin-left:1%;margin-top:1%"/>
+            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter password" style="width:30%;margin-left:1%;margin-top:1%"/>
+        </div>
+        <div style="margin:1%;  class="form-group">
+             <button type="submit"  class="btn btn-primary">Login</button>
+        </div>
     </form>
-    <asp:Label ID="resultStr" runat="server" Text=""></asp:Label>
 </body>
 </html>
