@@ -17,7 +17,7 @@
         <img src="../resources/logo.png" alt="Mountain View" style="width:150px;height:75px;">
         <button type="button" class="btn btn-primary">Teams</button>
         <button type="button" class="btn btn-primary">Users</button>
-        <a href="LoginForm.aspx"><button type="button" style="float:right;margin-top:1.4%" class="btn btn-primary">Login</button></a>
+        <a href="LoginForm.aspx"><button type="button" style="float:right;margin-top:1.4%; margin-left:1%" class="btn btn-primary">Login</button></a>
     </div>
     <form id="form1" runat="server">
     <div>
