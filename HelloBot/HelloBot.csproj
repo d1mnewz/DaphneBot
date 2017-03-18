@@ -286,6 +286,9 @@
     <Compile Include="Question.cs">
       <DependentUpon>DaphneModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>DaphneModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Status.cs">
       <DependentUpon>DaphneModel.tt</DependentUpon>
     </Compile>
@@ -311,8 +314,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="Properties\PublishProfiles\HelloTeam - Web Deploy.pubxml" />
-    <Content Include="tables\data1.json" />
-    <Content Include="tables\data2.json" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

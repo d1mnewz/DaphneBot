@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeamPage.aspx.cs" Inherits="HelloBot.Forms.TeamPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserPage.aspx.cs" Inherits="HelloBot.Forms.UserPage" %>
+
 
 <!DOCTYPE html>
 
@@ -68,25 +69,7 @@
 					<div class="panel-heading">Team members</div>
 					<div id="demo">
 <form runat="server">
-            <!-- Responsive table starts here -->
-            <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
-            <div class="table-responsive-vertical shadow-z-1">
-            <!-- Table starts here -->
-            <table id="table" class="table table-hover table-mc-light-blue">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Nickname</th>
-                    <th>Full name</th>
-                    <th>Role</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    
-                    <asp:Label ID="resultStr" runat="server" Text=""></asp:Label>
-                </tbody>
-              </table>
-              </div>
+            
     </form>
             </div>
 				</div>

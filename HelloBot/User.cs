@@ -24,6 +24,7 @@ namespace HelloBot
         public Nullable<int> teamId { get; set; }
         public string userName { get; set; }
         public string fullName { get; set; }
+        public int roleId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Status> Statuses { get; set; }

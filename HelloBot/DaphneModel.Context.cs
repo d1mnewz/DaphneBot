@@ -31,5 +31,6 @@ namespace HelloBot
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
     }
 }

@@ -15,6 +15,7 @@
         <AssociationConnector Association="DaphneBotModel.FK__Statuses__userId__17F790F9" ManuallyRouted="false" />
         <AssociationConnector Association="DaphneBotModel.FK__Users__teamId__18EBB532" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DaphneBotModel.database_firewall_rules" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="DaphneBotModel.Role" Width="1.5" PointX="0.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

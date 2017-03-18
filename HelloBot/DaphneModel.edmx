@@ -22,6 +22,13 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="questionContent" Type="varchar" MaxLength="256" Nullable="false" />
         </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="roleName" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
         <EntityType Name="Statuses">
           <Key>
             <PropertyRef Name="id" />
@@ -45,6 +52,7 @@
           <Property Name="teamId" Type="int" />
           <Property Name="userName" Type="varchar" MaxLength="64" />
           <Property Name="fullName" Type="varchar" MaxLength="1024" />
+          <Property Name="roleId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DaphneBot.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -115,6 +123,7 @@ warning 6002: The table/view 'DaphneBot.sys.database_firewall_rules' does not ha
         <EntityContainer Name="DaphneBotModelStoreContainer">
           <EntitySet Name="QAs" EntityType="Self.QAs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teams" EntityType="Self.Teams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -197,6 +206,7 @@ warning 6002: The table/view 'DaphneBot.sys.database_firewall_rules' does not ha
           <Property Name="fullName" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Statuses" Relationship="Self.FK__Statuses__userId__17F790F9" FromRole="Users" ToRole="Statuses" />
           <NavigationProperty Name="Team" Relationship="Self.FK__Users__teamId__18EBB532" FromRole="Users" ToRole="Teams" />
+          <Property Name="roleId" Type="Int32" />
         </EntityType>
         <Association Name="FK__QAs__questionId__19DFD96B">
           <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
@@ -269,6 +279,7 @@ warning 6002: The table/view 'DaphneBot.sys.database_firewall_rules' does not ha
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
           <EntitySet Name="database_firewall_rules" EntityType="DaphneBotModel.database_firewall_rules" />
+          <EntitySet Name="Roles" EntityType="DaphneBotModel.Role" />
         </EntityContainer>
         <EntityType Name="database_firewall_rules">
           <Key>
@@ -285,6 +296,13 @@ warning 6002: The table/view 'DaphneBot.sys.database_firewall_rules' does not ha
           <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -331,6 +349,7 @@ warning 6002: The table/view 'DaphneBot.sys.database_firewall_rules' does not ha
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DaphneBotModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="teamId" ColumnName="teamId" />
                 <ScalarProperty Name="userName" ColumnName="userName" />
@@ -346,6 +365,14 @@ warning 6002: The table/view 'DaphneBot.sys.database_firewall_rules' does not ha
                 <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
                 <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="DaphneBotModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
