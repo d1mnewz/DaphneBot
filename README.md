@@ -31,7 +31,7 @@ Add additional notes about how to deploy this on a live system
 ## Authors
 
 * **Zhluktenko Dmytro** Coding random tasks - [d1mnewz](https://github.com/d1mnewz)
-* **Demyanenko Alexandr** Coding random tasks - [d1mnewz](https://github.com/d1mnewz)
+* **Demyanenko Alexandr** Coding random tasks - [alexanderDemyanenko](https://github.com/alexanderDemyanenko)
 * **Vasyl Dzyuba** Coding random tasks - [vasyldzyuba](https://github.com/vasyldzyuba)
 * **Vsevolod Pus'** Coding random tasks - [GreedyGoblim](https://github.com/GreedyGoblim)
 * **Volodymyr Mykhailyk** Mentoring - [volodymyr-mykhailyk](https://github.com/volodymyr-mykhailyk)
