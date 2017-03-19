@@ -31,11 +31,11 @@ namespace HelloBot
             {
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
 
-                var now = DateTime.Now;
+                var now = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
 
                 // return our reply to the user
-                Activity reply = activity.CreateReply($"Hello, IoT!" +
-                                                      $"I am Daphne and I will collect your statuses someday. But for now take this kitty."
+                Activity reply = activity.CreateReply($"Hello, IoT! " +
+                                                      $"I am Daphne and I will collect your statuses someday. But for now take this kitty. "
                                                       + $"http://thecatapi.com/api/images/get?format=src&type=png&timestamp=" + $"{now}");
 
 
