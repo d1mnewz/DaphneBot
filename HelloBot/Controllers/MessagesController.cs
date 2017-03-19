@@ -17,14 +17,7 @@ namespace HelloBot
     public class MessagesController : ApiController
     {
 
-        [HttpGet]
-        [Route("api/messages/test")]
-        public IHttpActionResult Get()
-        {
-            List<int> l = new List<int>() {42, 420, 4, 2};
 
-            return Ok(l);
-        }
 
         /// <summary>
         /// POST: api/Messages
