@@ -33,7 +33,17 @@ namespace HelloBot
 
 
                 // return our reply to the user
-                Activity reply = activity.CreateReply($"Hello, Zumwalts! Sorry, but currently I'm stupid. Ask someone to code me.");
+                Activity reply = activity.CreateReply($"Hello, IoT!" +
+                                                      $"I am Daphne and I will collect your statuses someday. But for now take this kitty.");
+
+                reply.Attachments = new List<Attachment>();  //****** INIT
+                var ts = DateTime.Now;
+                reply.Attachments.Add(new Attachment()
+                {
+                    ContentUrl = $"http://thecatapi.com/api/images/get?format=src&type=png&timestamp=" +$"{ts}",
+                    ContentType = "image/png"
+                });
+
                 await connector.Conversations.ReplyToActivityAsync(reply);
             }
             else
