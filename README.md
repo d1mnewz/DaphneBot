@@ -1,9 +1,10 @@
 # DaphneBot
-Chat bot created to solve team management problems
+Sometimes team members forget to publish their statuses for day/week/sprint. Sometimes they have to publish it to already-defined document. Why couldn't we make this less complicated? Just give your status to chat bot on Slack and you are good to go!
+ 
 
 ## Getting Started
 
-
+http://helloteam.azurewebsites.net/
 
 ### Prerequisites
 
@@ -33,6 +34,6 @@ Add additional notes about how to deploy this on a live system
 * **Demyanenko Alexandr** Coding random tasks - [d1mnewz](https://github.com/d1mnewz)
 * **Vasyl Dzyuba** Coding random tasks - [vasyldzyuba](https://github.com/vasyldzyuba)
 * **Vsevolod Pus'** Coding random tasks - [GreedyGoblim](https://github.com/GreedyGoblim)
-* ** Volodymyr Mykhailyk** Mentoring*  [volodymyr-mykhailyk](https://github.com/volodymyr-mykhailyk)
+* **Volodymyr Mykhailyk** Mentoring - [volodymyr-mykhailyk](https://github.com/volodymyr-mykhailyk)
 
 
