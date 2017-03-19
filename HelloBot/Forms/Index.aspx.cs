@@ -16,6 +16,14 @@ namespace HelloBot.Controllers
         {
             using (DaphneBotEntities ctx = new DaphneBotEntities())
             {
+                resultStr.Text +=
+                    $"We have {ctx.Users.Count()} users," +
+                    $" {ctx.Teams.Count()} teams," +
+                    $" {ctx.QAs.Count()} QA combinations," +
+                    $" {ctx.Questions.Count()} questions," +
+                    $" {ctx.Statuses.Count()} statuses. <br><br>";
+
+
                 foreach (var VARIABLE in ctx.Users)
                 {
                     resultStr.Text += $"{VARIABLE.id} {VARIABLE.userName} {VARIABLE.fullName} <br>";
