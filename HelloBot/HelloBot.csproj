@@ -161,6 +161,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="css\Table.css" />
     <Content Include="Forms\LoginForm.aspx" />
+    <Content Include="Forms\QAs.aspx" />
     <Content Include="Forms\Questions.aspx" />
     <Content Include="Forms\TeamPage.aspx" />
     <Content Include="Forms\Teams.aspx" />
@@ -228,6 +229,13 @@
       <DependentUpon>LoginForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Forms\QAs.aspx.cs">
+      <DependentUpon>QAs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\QAs.aspx.designer.cs">
+      <DependentUpon>QAs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Questions.aspx.cs">
       <DependentUpon>Questions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
