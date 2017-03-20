@@ -35,7 +35,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+				<a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
                 <img src="../resources/logo.png" alt="Mountain View" style="width:150px;margin:5px">
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
