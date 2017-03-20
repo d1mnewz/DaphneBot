@@ -37,7 +37,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
-                <img src="../resources/logo.png" alt="Mountain View" style="width:150px;margin:5px">
+                
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
