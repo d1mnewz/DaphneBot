@@ -1,5 +1,5 @@
 # DaphneBot
-Sometimes team members forget to publish their statuses for day/week/sprint. Sometimes they have to publish it to already-defined document. Why couldn't we make this less complicated? Just give your status to chat bot on Slack and you are good to go!
+Sometimes team members forget to publish their statuses for day/week/sprint. Sometimes they have to publish it to already-defined document. Couldn't we make this less complicated? Just give your status to chat bot on Slack and you are good to go!
  
 
 ## Getting Started
