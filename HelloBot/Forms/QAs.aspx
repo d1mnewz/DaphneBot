@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Teams.aspx.cs" Inherits="HelloBot.Forms.Teams" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="QAs.aspx.cs" Inherits="HelloBot.Forms.QAs" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +7,6 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/datepicker3.css" rel="stylesheet">
 <link href="../css/styles.css" rel="stylesheet">
-    <link href="../css/Table.css" rel="stylesheet">
 
 <!--Icons-->
 <script src="../js/lumino.glyphs.js"></script>
@@ -18,11 +16,11 @@
    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		
 		<ul class="nav menu">
-			<li><a href="Index.aspx"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-			<li class="active"><a href="Teams.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Teams</a></li>
+			<li ><a href="Index.aspx"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+			<li><a href="Teams.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Teams</a></li>
             <li><a href="Users.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Users</a></li>
             <li ><a href="Questions.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Questions</a></li>
-             <li ><a href="QAs.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> QAs</a></li>
+            <li class="active"><a href="Template.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> QAs</a></li>
             <li><a href="Statuses.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Statuses</a></li>
             <li><a href="Template.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-calendar"></use></svg> Template</a></li>
 			<li role="presentation" class="divider"></li>
@@ -40,8 +38,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				
-                <a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
+				<a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
+                
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -56,8 +54,7 @@
 							
 		</div><!-- /.container-fluid -->
 	</nav>
-
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		
 		
 		<div class="row">
@@ -78,7 +75,10 @@
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Team Name</th>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Collected</th>
+                    <th>Status ID</th>
                   </tr>
                 </thead>
                 <tbody>
