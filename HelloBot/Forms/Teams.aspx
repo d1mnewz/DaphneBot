@@ -37,7 +37,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+				
                 <a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
