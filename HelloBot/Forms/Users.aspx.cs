@@ -17,10 +17,10 @@ namespace HelloBot.Forms
                 foreach (var item in ctx.Users)
                 {
                     resultStr.Text += $"<tr>" +
-                                      $"<td data-title='ID'>{item.id}</td>" +
-                                      $"<td data-title='team-name' >{item.Team.teamName}</td>" +
-                                      $"<td data-title='team-name' >{item.userName}</td>" +
-                                      $"<td data-title='team-name' >{item.fullName}</td>" +
+                                      $"<td>{item.id}</td>" +
+                                      $"<td><a href='TeamPage.aspx?tid={item.Team.id}'>{item.Team.teamName}</a></td>" +
+                                      $"<td>{item.userName}</td>" +
+                                      $"<td>{item.fullName}</td>" +
                                       $"</tr>";
                 }
             }
@@ -38,10 +38,10 @@ namespace HelloBot.Forms
                 foreach (var item in results)
                 {
                     resultStr.Text += $"<tr>" +
-                                      $"<td data-title='ID'>{item.id}</td>" +
-                                      $"<td data-title='team-name' >{item.Team.teamName}</td>" +
-                                      $"<td data-title='team-name' >{item.userName}</td>" +
-                                      $"<td data-title='team-name' >{item.fullName}</td>" +
+                                      $"<td>{item.id}</td>" +
+                                      $"<td><a href='TeamPage.aspx?tid={item.Team.id}'>{item.Team.teamName}</a></td>" +
+                                      $"<td>{item.userName}</td>" +
+                                      $"<td>{item.fullName}</td>" +
                                       $"</tr>";
 
                 }
