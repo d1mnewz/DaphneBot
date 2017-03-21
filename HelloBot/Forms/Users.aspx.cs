@@ -14,13 +14,13 @@ namespace HelloBot.Forms
         {
             using (DaphneBotEntities ctx = new DaphneBotEntities())
             {
-                foreach (var VARIABLE in ctx.Users)
+                foreach (var item in ctx.Users)
                 {
                     resultStr.Text += $"<tr>" +
-                                      $"<td data-title='ID'>{VARIABLE.id}</td>" +
-                                      $"<td data-title='team-name' >{VARIABLE.Team.teamName}</td>" +
-                                      $"<td data-title='team-name' >{VARIABLE.userName}</td>" +
-                                      $"<td data-title='team-name' >{VARIABLE.fullName}</td>" +
+                                      $"<td>{item.id}</td>" +
+                                      $"<td><a href='TeamPage.aspx?tid={item.Team.id}'>{item.Team.teamName}</a></td>" +
+                                      $"<td>{item.userName}</td>" +
+                                      $"<td>{item.fullName}</td>" +
                                       $"</tr>";
                 }
             }
@@ -35,13 +35,13 @@ namespace HelloBot.Forms
                 var results = resultsByUsername.Union(resultsByFullname);
                 resultStr.Text = ""; // this empties our table. and if there is no items in result set, table will be empty.
 
-                foreach (var VARIABLE in results)
+                foreach (var item in results)
                 {
                     resultStr.Text += $"<tr>" +
-                                      $"<td data-title='ID'>{VARIABLE.id}</td>" +
-                                      $"<td data-title='team-name' >{VARIABLE.Team.teamName}</td>" +
-                                      $"<td data-title='team-name' >{VARIABLE.userName}</td>" +
-                                      $"<td data-title='team-name' >{VARIABLE.fullName}</td>" +
+                                      $"<td>{item.id}</td>" +
+                                      $"<td><a href='TeamPage.aspx?tid={item.Team.id}'>{item.Team.teamName}</a></td>" +
+                                      $"<td>{item.userName}</td>" +
+                                      $"<td>{item.fullName}</td>" +
                                       $"</tr>";
 
                 }
