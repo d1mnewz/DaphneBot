@@ -10,10 +10,11 @@
 <link href="../css/datepicker3.css" rel="stylesheet">
 <link href="../css/styles.css" rel="stylesheet">
     <link href="../css/Table.css" rel="stylesheet">
-
+        <link rel="shortcut icon" href="../images/icon.ico"
+        type="image/x-icon" />
 <!--Icons-->
 <script src="../js/lumino.glyphs.js"></script>
-    <title></title>
+    <title>DaphneBot</title>
 </head>
 <body runat="server">
    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
