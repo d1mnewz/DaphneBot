@@ -69,7 +69,10 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Teams</div>
 					<div id="demo">
-
+                        <form id="searchForm" runat="server">
+                            <asp:TextBox ID="txtWord" runat="server"></asp:TextBox>
+                            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" Width="107px" />
+                        </form>
             <!-- Responsive table starts here -->
             <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
             <div class="table-responsive-vertical shadow-z-1">
