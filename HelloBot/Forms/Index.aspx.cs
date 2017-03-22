@@ -14,7 +14,7 @@ namespace HelloBot.Controllers
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            using (DaphneBaseEntities ctx = new DaphneBaseEntities())
             {
                 foreach (var VARIABLE in ctx.Users)
                 {

@@ -14,7 +14,7 @@ namespace HelloBot.Forms
             int teamId = 0;
             Int32.TryParse(Request.QueryString["tid"],out teamId);
             
-            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            using (DaphneBaseEntities ctx = new DaphneBaseEntities())
             {
                 var team=ctx.Teams.Where(t=>t.id==teamId).FirstOrDefault();
                 try
@@ -34,7 +34,7 @@ namespace HelloBot.Forms
                             $"<td data-title='ID'>{u.id}</td>"+
                             $"<td data-title='ID'>{u.userName}</td>" +
                             $"<td data-title='ID'>{u.fullName}</td>" +
-                            $"<td>{getRoleName(u.roleId)}</td> </tr>";
+                            $"<td>{getRoleName(u.roleId??default(int))}</td> </tr>";
                     }
                 }
 
@@ -44,7 +44,7 @@ namespace HelloBot.Forms
         {
             string rname;
 
-            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            using (DaphneBaseEntities ctx = new DaphneBaseEntities())
             {
                 var role = ctx.Roles.Where(r => r.id == roleId).FirstOrDefault();
                 rname = role.roleName;

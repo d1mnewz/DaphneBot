@@ -12,7 +12,7 @@ namespace HelloBot.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            using (DaphneBaseEntities ctx = new DaphneBaseEntities())
             {
                 string name;
                 foreach (var VARIABLE in ctx.Users)
@@ -32,7 +32,7 @@ namespace HelloBot.Forms
         {
             string name="";
 
-            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            using (DaphneBaseEntities ctx = new DaphneBaseEntities())
             {
                 var team = ctx.Teams.Where(t => t.id == id).FirstOrDefault();
                 try
