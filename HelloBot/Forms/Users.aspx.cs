@@ -1,51 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Linq;
 
 namespace HelloBot.Forms
 {
-    public partial class Users : System.Web.UI.Page
+    public partial class Users : Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e) // everytime something is changing on page, Page_Load is getting called.
         {
-            using (DaphneBaseEntities ctx = new DaphneBaseEntities())
+        }
+        protected void Page_Init(object sender, EventArgs e) // for updating table on search we need to use Page_Init 
+                                                            //to set initial values because its getting called only one time
+        {
+            using (DaphneBotEntities ctx = new DaphneBotEntities())
             {
-                string name;
-                foreach (var VARIABLE in ctx.Users)
+                foreach (var item in ctx.Users)
                 {
-                    name = getTeamName((Int32)VARIABLE.teamId);
                     resultStr.Text += $"<tr>" +
-                            $"<td data-title='ID'>{VARIABLE.id}</td>" +
-                            $"<td data-title='team-name' >{name}</td>" +
-                            $"<td data-title='team-name' >{VARIABLE.userName}</td>" +
-                            $"<td data-title='team-name' >{VARIABLE.fullName}</td>" +
-                        $"</tr>";
-
+                                      $"<td>{item.id}</td>" +
+                                      $"<td><a href='TeamPage.aspx?tid={item.Team.id}'>{item.Team.teamName}</a></td>" +
+                                      $"<td>{item.userName}</td>" +
+                                      $"<td>{item.fullName}</td>" +
+                                      $"</tr>";
                 }
             }
         }
-        protected string getTeamName(int id)
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string name="";
-
-            using (DaphneBaseEntities ctx = new DaphneBaseEntities())
+            using (DaphneBotEntities ctx = new DaphneBotEntities())
             {
-                var team = ctx.Teams.Where(t => t.id == id).FirstOrDefault();
-                try
-                {
-                    name = team.teamName;
-                }
-                catch(Exception e)
-                {
-                    name = e.Message.ToString();
-                }
-            }
+                string searchWord = txtWord.Text;
+                var resultsByUsername = ctx.Users.Where(x => x.userName.Contains(searchWord));
+                var resultsByFullname = ctx.Users.Where(x => x.fullName.Contains(searchWord));
+                var results = resultsByUsername.Union(resultsByFullname);
+                resultStr.Text = ""; // this empties our table. and if there is no items in result set, table will be empty.
 
-            return name;
+                foreach (var item in results)
+                {
+                    resultStr.Text += $"<tr>" +
+                                      $"<td>{item.id}</td>" +
+                                      $"<td><a href='TeamPage.aspx?tid={item.Team.id}'>{item.Team.teamName}</a></td>" +
+                                      $"<td>{item.userName}</td>" +
+                                      $"<td>{item.fullName}</td>" +
+                                      $"</tr>";
+
+                }
+
+            }
         }
+
+
     }
 }

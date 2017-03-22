@@ -13,10 +13,10 @@ namespace HelloBot
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DaphneBaseEntities : DbContext
+    public partial class DaphneBotEntities : DbContext
     {
-        public DaphneBaseEntities()
-            : base("name=DaphneBaseEntities")
+        public DaphneBotEntities()
+            : base("name=DaphneBotEntities")
         {
         }
     
@@ -27,7 +27,6 @@ namespace HelloBot
     
         public virtual DbSet<QA> QAs { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Status> Statuses { get; set; }
         public virtual DbSet<Team> Teams { get; set; }
         public virtual DbSet<User> Users { get; set; }

@@ -7,18 +7,22 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/datepicker3.css" rel="stylesheet">
 <link href="../css/styles.css" rel="stylesheet">
-
+        <link rel="shortcut icon" href="../images/icon.ico"
+        type="image/x-icon" />
 <!--Icons-->
 <script src="../js/lumino.glyphs.js"></script>
-    <title></title>
+    <title>DaphneBot</title>
 </head>
 <body runat="server">
    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		
 		<ul class="nav menu">
-			<li class="active"><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+			<li class="active"><a href="Index.aspx"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
 			<li><a href="Teams.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Teams</a></li>
             <li><a href="Users.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Users</a></li>
+            <li ><a href="Questions.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Questions</a></li>
+             <li ><a href="QAs.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> QAs</a></li>
+            <li><a href="Statuses.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Statuses</a></li>
             <li><a href="Template.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-calendar"></use></svg> Template</a></li>
 			<li role="presentation" class="divider"></li>
 			<li><a href="LoginForm.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>
@@ -35,8 +39,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
-                <img src="../resources/logo.png" alt="Mountain View" style="width:150px;margin:5px">
+				<a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
+                
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
