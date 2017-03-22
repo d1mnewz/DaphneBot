@@ -30,12 +30,11 @@ namespace HelloBot.Forms
                 {
                     if(u.teamId==team.id)
                     {
-                        resultStr.Text += $"" +
+                        resultStr.Text += $"<tr>" +
                             $"<td data-title='ID'>{u.id}</td>"+
                             $"<td data-title='ID'>{u.userName}</td>" +
                             $"<td data-title='ID'>{u.fullName}</td>" +
-                            $"<td>{getRoleName(u.roleId)}</td> "+
-                            ;
+                            $"<td>{getRoleName(u.roleId)}</td> </tr>";
                     }
                 }
 
