@@ -29,5 +29,14 @@ namespace HelloBot.Forms
                 }
             }
         }
+        public void onDeleteClick(int id)
+        {
+            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            {
+                var question = ctx.Questions.Where(q => q.id == id).FirstOrDefault();
+                ctx.Questions.Remove(question);
+                ctx.SaveChanges();
+            }
+        }
     }
 }
