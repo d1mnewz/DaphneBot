@@ -4,7 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+        <link rel="shortcut icon" href="../images/icon.ico"
+        type="image/x-icon" />
+    <title>DaphneBot</title>
 </head>
 <body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -13,10 +15,10 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <div class="panel panel-default">
-        <a href="WebForm1.aspx"><img src="../resources/logo.png" alt="Mountain View" style="width:150px;height:75px;"></a>
+        <a href="Index.aspx"><img src="../resources/logo.png" alt="Mountain View" style="width:150px;height:75px;"></a>
         <button type="button" class="btn btn-primary">Teams</button>
         <button type="button" class="btn btn-primary">Users</button>
-        <a href="LoginForm.aspx"><button type="button" style="float:right;margin-top:1.4%" class="btn btn-primary">Login</button></a>
+        <a href="LoginForm.aspx"><button type="button" style="float:right;margin-top:1.4%;margin-left:1%" class="btn btn-primary">Login</button></a>
     </div>
     <form id="form1" runat="server" method="get" action="">
         <div>

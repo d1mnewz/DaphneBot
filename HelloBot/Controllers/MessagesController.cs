@@ -16,16 +16,6 @@ namespace HelloBot
     [BotAuthentication]
     public class MessagesController : ApiController
     {
-
-        [HttpGet]
-        [Route("api/messages/test")]
-        public IHttpActionResult Get()
-        {
-            List<int> l = new List<int>() {42, 420, 4, 2};
-
-            return Ok(l);
-        }
-
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
@@ -38,9 +28,14 @@ namespace HelloBot
             {
                 ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
 
+                var now = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
 
                 // return our reply to the user
-                Activity reply = activity.CreateReply($"Hello, Zumwalts! Sorry, but currently I'm stupid. Ask someone to code me.");
+                Activity reply = activity.CreateReply($"Hello, IoT! " +
+                                                      $"I am Daphne and I will collect your statuses someday. But for now take this kitty. "
+                                                      + $"http://thecatapi.com/api/images/get?format=src&type=png&timestamp=" + $"{now}");
+
+
                 await connector.Conversations.ReplyToActivityAsync(reply);
             }
             else

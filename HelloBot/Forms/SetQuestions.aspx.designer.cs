@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HelloBot.Controllers {
+namespace HelloBot.Forms {
     
     
-    public partial class WebForm1 {
+    public partial class SetQuestions {
         
         /// <summary>
-        /// form1 control.
+        /// question1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox question1;
         
         /// <summary>
-        /// resultStr control.
+        /// question2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label resultStr;
+        protected global::System.Web.UI.WebControls.TextBox question2;
+        
+        /// <summary>
+        /// question3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox question3;
     }
 }
