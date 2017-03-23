@@ -4,13 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/datepicker3.css" rel="stylesheet">
-<link href="../css/styles.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/datepicker3.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/icon.ico"
+        type="image/x-icon" />
+    <!--Icons-->
+    <script src="../js/lumino.glyphs.js"></script>
 
-<!--Icons-->
-<script src="../js/lumino.glyphs.js"></script>
-    <title></title>
+    <title>DaphneBot</title>
 </head>
 <body runat="server">
    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
@@ -21,6 +23,7 @@
             <li><a href="Users.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Users</a></li>
             <li ><a href="Questions.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Questions</a></li>
              <li ><a href="QAs.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> QAs</a></li>
+
             <li><a href="Statuses.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Statuses</a></li>
             <li><a href="Template.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-calendar"></use></svg> Template</a></li>
 			<li role="presentation" class="divider"></li>
@@ -38,8 +41,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
-                <img src="../resources/logo.png" alt="Mountain View" style="width:150px;margin:5px">
+				<a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
+
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -92,6 +95,7 @@
     </form>
             </div>
 				</div>
+
 			</div>
 		</div><!--/.row-->
            

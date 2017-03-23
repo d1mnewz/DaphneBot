@@ -15,7 +15,7 @@
     <title>DaphneBot</title>
 </head>
 <body runat="server">
-    <form runat="server">
+
    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		
 		<ul class="nav menu">
@@ -85,13 +85,16 @@
                     <asp:Label ID="resultStr" runat="server" Text=""></asp:Label>
                 </tbody>
               </table>
+
                <a href="SetQuestions.aspx" class="btn btn-primary">Set new questions</a>
+
               </div>
             </div>
 				</div>
 			</div>
 		</div><!--/.row-->	
     </div><!--/.row-->	
+
 
 
     </form>

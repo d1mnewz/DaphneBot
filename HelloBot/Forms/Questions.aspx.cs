@@ -29,6 +29,7 @@ namespace HelloBot.Forms
                 }
             }
         }
+
         public void onDeleteClick(int id)
         {
             using (DaphneBotEntities ctx = new DaphneBotEntities())
@@ -38,5 +39,6 @@ namespace HelloBot.Forms
                 ctx.SaveChanges();
             }
         }
+
     }
 }
