@@ -15,27 +15,27 @@ namespace HelloBot
 using System;
     using System.Collections.Generic;
     
-public partial class Question
+public partial class Role
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public Question()
+    public Role()
     {
 
-        this.QAs = new HashSet<QA>();
+        this.Users = new HashSet<User>();
 
     }
 
 
     public int id { get; set; }
 
-    public string questionContent { get; set; }
+    public string roleName { get; set; }
 
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<QA> QAs { get; set; }
+    public virtual ICollection<User> Users { get; set; }
 
 }
 

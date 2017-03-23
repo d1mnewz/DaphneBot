@@ -19,7 +19,7 @@ namespace HelloBot.Forms
                     resultStr.Text += $"<tr>" +
                                       $"<td>{item.id}</td>" +
                                       $"<td><a href='TeamPage.aspx?tid={item.Team.id}'>{item.Team.teamName}</a></td>" +
-                                      $"<td>{item.userName}</td>" +
+                                      $"<td><a href='UserPage.aspx?uid={item.id}'>{item.userName}</a></td>" +
                                       $"<td>{item.fullName}</td>" +
                                       $"</tr>";
                 }

@@ -85,8 +85,8 @@
                     <div class="panel-heading">Users</div>
                     <div id="demo">
                         <form id="searchForm" runat="server">
-                            <asp:TextBox ID="txtWord" runat="server"></asp:TextBox>
-                            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+                            <asp:TextBox ID="txtWord" runat="server" CssClass="form-control" Width="15%" Wrap="false" ></asp:TextBox>
+                            <asp:Button ID="btnSearch" runat="server" Text="Search" CssClass="btn btn-default" OnClick="btnSearch_Click" />
                         </form>
                         <!-- Responsive table starts here -->
                         <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->

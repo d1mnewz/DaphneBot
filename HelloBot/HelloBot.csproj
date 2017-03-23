@@ -163,6 +163,7 @@
     <Content Include="Forms\LoginForm.aspx" />
     <Content Include="Forms\QAs.aspx" />
     <Content Include="Forms\Questions.aspx" />
+    <Content Include="Forms\SetQuestions.aspx" />
     <Content Include="Forms\Statuses.aspx" />
     <Content Include="Forms\TeamPage.aspx" />
     <Content Include="Forms\Teams.aspx" />
@@ -188,6 +189,7 @@
     </Content>
     <Content Include="default.htm" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forms\UserPage.aspx" />
     <Content Include="Forms\Users.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\bootstrap-datepicker.js" />
@@ -244,6 +246,13 @@
     <Compile Include="Forms\Questions.aspx.designer.cs">
       <DependentUpon>Questions.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SetQuestions.aspx.cs">
+      <DependentUpon>SetQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\SetQuestions.aspx.designer.cs">
+      <DependentUpon>SetQuestions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Statuses.aspx.cs">
       <DependentUpon>Statuses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +306,13 @@
     <Compile Include="database_firewall_rules.cs">
       <DependentUpon>DaphneModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UserPage.aspx.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\UserPage.aspx.designer.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -312,6 +328,9 @@
       <DependentUpon>DaphneModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Question.cs">
+      <DependentUpon>DaphneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
       <DependentUpon>DaphneModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Status.cs">
