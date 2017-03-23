@@ -58,14 +58,27 @@
 
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		
-		
+		<form runat="server">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Dashboard</h1>
-                
+				<h1 class="page-header"><asp:Label ID="LoginLbl" runat="server" Text=""></asp:Label></h1>
+                <div class="row">
+                    <div class="table-responsive-vertical shadow-z-1">
+                        <div id="demo" style="margin:1%">
+                    <h2><asp:Label Text="Full name: " runat="server" ID="FNameLbl"></asp:Label></h2>
+                    
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="rolesDDl" Width="15%">
+
+                    </asp:DropDownList>
+                            <div style="margin-top:1%">
+                    <asp:Button ID="SaveBtn" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="SaveBtn_Click"></asp:Button>
+                                </div>
+                            </div>
+                         </div>
+                </div>
 			</div>
 		</div><!--/.row-->
-    
+    </form>
         	<script src="../js/jquery-1.11.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/chart.min.js"></script>

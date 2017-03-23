@@ -189,6 +189,7 @@
     </Content>
     <Content Include="default.htm" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forms\UserPage.aspx" />
     <Content Include="Forms\Users.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\bootstrap-datepicker.js" />
@@ -304,6 +305,13 @@
     </Compile>
     <Compile Include="database_firewall_rules.cs">
       <DependentUpon>DaphneModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserPage.aspx.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\UserPage.aspx.designer.cs">
+      <DependentUpon>UserPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>

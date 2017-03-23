@@ -32,7 +32,7 @@ namespace HelloBot.Forms
                     {
                         resultStr.Text += $"<tr>" +
                             $"<td data-title='ID'>{u.id}</td>" +
-                            $"<td data-title='ID'>{u.userName}</td>" +
+                            $"<td data-title='ID'><a href='UserPage.aspx?uid={u.id}'>{u.userName}</a></td>" +
                             $"<td data-title='ID'>{u.fullName}</td>" +
                             $"<td>{getRoleName(u.roleId ?? default(int))}</td> </tr>";
                     }
