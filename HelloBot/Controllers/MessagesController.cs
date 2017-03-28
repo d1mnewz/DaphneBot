@@ -4,39 +4,46 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.UI.WebControls;
 using Microsoft.Bot.Connector;
+using Microsoft.Bot.Builder.Dialogs;
+using Microsoft.Bot.Builder.FormFlow;
+using System.Web.Http.Description;
 
 
 namespace HelloBot
 {
+    [Serializable]
+    public class UserStatus
+    {
+        public Dictionary<int ,string> questions;
+        public Dictionary<int, string> answers;
 
-
+        public static IForm<UserStatus> BuildStatus()
+        {
+            return new FormBuilder<UserStatus>().Message("Ok, now you need to ask some questions :)").Build();
+        }
+    }
 
     [BotAuthentication]
     public class MessagesController : ApiController
     {
+        internal static IDialog<UserStatus> MakeRootDialog()
+        {
+            return Chain.From(() => FormDialog.FromForm(UserStatus.BuildStatus));
+        }
+
         /// <summary>
         /// POST: api/Messages
         /// Receive a message from a user and reply to it
         /// </summary>
         /// 
-        /// 
+        ///
+        [ResponseType(typeof(void))]
         public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
         {
             if (activity.Type == ActivityTypes.Message)
             {
-                ConnectorClient connector = new ConnectorClient(new Uri(activity.ServiceUrl));
-
-                var now = DateTime.Now.ToString("yyyy-dd-M-HH-mm-ss");
-
-                // return our reply to the user
-                Activity reply = activity.CreateReply($"Hello, IoT! " +
-                                                      $"I am Daphne and I will collect your statuses someday. But for now take this kitty. "
-                                                      + $"http://thecatapi.com/api/images/get?format=src&type=png&timestamp=" + $"{now}");
-
-
-                await connector.Conversations.ReplyToActivityAsync(reply);
+                //await Conversation.SendAsync(activity, MakeRootDialog);
             }
             else
             {
@@ -46,6 +53,7 @@ namespace HelloBot
             return response;
         }
 
+        #region system messages
         private Activity HandleSystemMessage(Activity message)
         {
             if (message.Type == ActivityTypes.DeleteUserData)
@@ -74,5 +82,6 @@ namespace HelloBot
 
             return null;
         }
+#endregion
     }
 }

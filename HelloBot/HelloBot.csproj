@@ -88,7 +88,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="SlackAPI, Version=1.0.5.93, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SlackAPI.1.0.5.93\lib\net45\SlackAPI.dll</HintPath>
@@ -163,7 +162,7 @@
     <Content Include="Forms\LoginForm.aspx" />
     <Content Include="Forms\QAs.aspx" />
     <Content Include="Forms\Questions.aspx" />
-    <Content Include="Forms\SetQuestions.aspx" />
+    <Content Include="css\SetQuestions.aspx" />
     <Content Include="Forms\Statuses.aspx" />
     <Content Include="Forms\TeamPage.aspx" />
     <Content Include="Forms\Teams.aspx" />
@@ -246,11 +245,11 @@
     <Compile Include="Forms\Questions.aspx.designer.cs">
       <DependentUpon>Questions.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SetQuestions.aspx.cs">
+    <Compile Include="css\SetQuestions.aspx.cs">
       <DependentUpon>SetQuestions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\SetQuestions.aspx.designer.cs">
+    <Compile Include="css\SetQuestions.aspx.designer.cs">
       <DependentUpon>SetQuestions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Statuses.aspx.cs">

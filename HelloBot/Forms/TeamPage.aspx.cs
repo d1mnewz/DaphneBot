@@ -9,11 +9,19 @@ namespace HelloBot.Forms
 {
     public partial class TeamPage : System.Web.UI.Page
     {
+        List<int> memberIds = new List<int>();
+        int teamId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            int teamId = 0;
-            Int32.TryParse(Request.QueryString["tid"], out teamId);
 
+            Int32.TryParse(Request.QueryString["tid"], out teamId);
+            FillTeamMembersTable();
+            fillStatusesTable();
+        }
+
+
+        public void FillTeamMembersTable()
+        {
             using (DaphneBotEntities ctx = new DaphneBotEntities())
             {
                 var team = ctx.Teams.Where(t => t.id == teamId).FirstOrDefault();
@@ -30,15 +38,47 @@ namespace HelloBot.Forms
                 {
                     if (u.teamId == team.id)
                     {
+                        memberIds.Add(u.id);
                         resultStr.Text += $"<tr>" +
                             $"<td data-title='ID'>{u.id}</td>" +
                             $"<td data-title='ID'><a href='UserPage.aspx?uid={u.id}'>{u.userName}</a></td>" +
                             $"<td data-title='ID'>{u.fullName}</td>" +
                             $"<td>{getRoleName(u.roleId ?? default(int))}</td> </tr>";
                     }
+
                 }
 
+
+
             }
+        }
+
+        private void fillStatusesTable()
+        {
+
+            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            {
+                int tmp;
+                for (int i=0;i<memberIds.Count;i++)
+                {
+                    tmp = memberIds[i];
+                    var status = ctx.Statuses.Where(s => s.userId == 1).FirstOrDefault();
+                    Label2.Text = $"<tr><td>{status.id}</td>" +
+                        $"<td>{getUserName(1)}</td>" +
+                        $"<td>{status.whenToCollect}</td></tr>";
+                }
+            }
+        }
+
+        private string getUserName(int userId)
+        {
+            string uName;
+            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            {
+                var user = ctx.Users.Where(u => u.id == userId).FirstOrDefault();
+                uName = user.userName;
+            }
+            return uName;
         }
         private string getRoleName(int roleId)
         {
