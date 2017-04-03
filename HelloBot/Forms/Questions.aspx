@@ -86,8 +86,8 @@
                 </tbody>
               </table>
 
-               <a href="SetQuestions.aspx" class="btn btn-primary">Set new questions</a>
-
+               <asp:Button runat="server" href="SetQuestions.aspx" class="btn btn-primary" Text="Add question"></asp:Button>
+                <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
               </div>
             </div>
 				</div>

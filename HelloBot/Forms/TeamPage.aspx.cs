@@ -62,10 +62,18 @@ namespace HelloBot.Forms
                 for (int i=0;i<memberIds.Count;i++)
                 {
                     tmp = memberIds[i];
+
                     var status = ctx.Statuses.Where(s => s.userId == 1).FirstOrDefault();
                     Label2.Text = $"<tr><td>{status.id}</td>" +
                         $"<td>{getUserName(1)}</td>" +
                         $"<td>{status.whenToCollect}</td></tr>";
+                    foreach(var q in ctx.QAs)
+                    {
+                        if(q.statusId==1)
+                        {
+                            Label2.Text += $"<td>{q.whenCollected}</td><td>{q.answer}</td>";
+                        }
+                    }
                 }
             }
         }
