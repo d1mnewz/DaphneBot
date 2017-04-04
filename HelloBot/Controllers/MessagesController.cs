@@ -8,31 +8,32 @@ using System.Web.UI.WebControls;
 using Microsoft.Bot.Connector;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.Dialogs;
-
+using System.Web.Http.Description;
 
 namespace HelloBot
 {
-    internal static IDialog<CompleteStatus> MakeRootDialog()
+    public class MessagesController : ApiController
     {
-        return Chain.From(() => FormDialog.FromForm(CompleteStatus.BuildForm));
-    }
-    [ResponseType(typeof(void))]
-    public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
-    {
-        if (activity != null)
+        public static IDialog<CompleteStatus> MakeRoot()
         {
-            // one of these will have an interface and process it
-            switch (activity.GetActivityType())
+            return Chain.From(() => FormDialog.FromForm(CompleteStatus.BuildForm));
+        }
+
+        [BotAuthentication]
+        public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
+        {
             {
-                case ActivityTypes.Message:
-                    await Conversation.SendAsync(activity, MakeRootDialog);
-                    break;
-                case ActivityTypes.ConversationUpdate:
-                case ActivityTypes.ContactRelationUpdate:
-                case ActivityTypes.Typing:
-                case ActivityTypes.DeleteUserData:
-                default:
-                    Trace.TraceError($"Unknown activity type ignored: {activity.GetActivityType()}");
+                if (activity.Type == ActivityTypes.Message)
+                {
+                    await Conversation.SendAsync(activity, MakeRoot);
+                }
+                else
+                {
+                    
+                   // HandleSystemMessage(activity);
+                }
+                var response = Request.CreateResponse(HttpStatusCode.OK);
+                return response;
             }
         }
     }
