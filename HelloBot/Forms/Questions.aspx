@@ -15,6 +15,7 @@
     <title>DaphneBot</title>
 </head>
 <body runat="server">
+    <form runat="server">
 
    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		
@@ -86,18 +87,19 @@
                 </tbody>
               </table>
 
-               <asp:Button runat="server" href="SetQuestions.aspx" class="btn btn-primary" Text="Add question"></asp:Button>
-                <asp:TextBox runat="server" CssClass="form-control"></asp:TextBox>
+               <asp:Button runat="server" href="SetQuestions.aspx" class="btn btn-primary" Text="Add question" ID="AddQuestionBtn" OnClick="Unnamed_Click"></asp:Button>
+      
+              </div>
+              <div>
+                  <asp:TextBox CssClass="form-control" runat="server" Visible="false"  ID="addQuestion"></asp:TextBox>
+                  <asp:Button CssClass="btn btn-primary" Text="Add" Visible="false" ID="addBtn" runat="server" OnClick="addBtn_Click"/>
+                  <asp:Button CssClass="btn btn-primary" Text="Cancel" Visible="false" ID="cancelBtn" runat="server" OnClick="cancelBtn_Click"/>
               </div>
             </div>
 				</div>
 			</div>
 		</div><!--/.row-->	
     </div><!--/.row-->	
-
-
-
-    </form>
     
     <script src="../js/jquery-1.11.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
@@ -107,7 +109,7 @@
 	<script src="../js/easypiechart-data.js"></script>
 	<script src="../js/bootstrap-datepicker.js"></script>
 	<script src="../js/bootstrap-table.js"></script>
-		
+</form>
 </body>
 </html>
 

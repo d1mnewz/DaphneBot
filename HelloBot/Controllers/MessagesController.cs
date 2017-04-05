@@ -18,6 +18,13 @@ namespace HelloBot
         public Dictionary<int ,string> questions;
         public Dictionary<int, string> answers;
 
+        public void fillQuestions()
+        {
+            questions.Add(1, "what you gonna do when they come for you?");
+            questions.Add(2, "bad boyz, bad boyz");
+            questions.Add(3, "what you gonna do when they come for you?");
+        }
+
         public static IForm<UserStatus> BuildStatus()
         {
             return new FormBuilder<UserStatus>().Message("Ok, now you need to ask some questions :)").Build();

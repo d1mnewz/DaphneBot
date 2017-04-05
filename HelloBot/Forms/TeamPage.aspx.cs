@@ -38,6 +38,7 @@ namespace HelloBot.Forms
                 {
                     if (u.teamId == team.id)
                     {
+                      
                         memberIds.Add(u.id);
                         resultStr.Text += $"<tr>" +
                             $"<td data-title='ID'>{u.id}</td>" +
@@ -52,6 +53,7 @@ namespace HelloBot.Forms
 
             }
         }
+
 
         private void fillStatusesTable()
         {
@@ -100,5 +102,7 @@ namespace HelloBot.Forms
 
             return rname;
         }
+
+      
     }
 }
