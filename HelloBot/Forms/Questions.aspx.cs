@@ -25,6 +25,7 @@ namespace HelloBot.Forms
                     resultStr.Text += $"<tr>" +
                                       $"<td data-title='ID'>{item.id}</td>" +
                                       $"<td data-title='team-name' >{item.questionContent}</td>" +
+                                      $"<td class='btn btn-dagner'><a href='Delete.aspx?dqid={item.id}'>Delete</a></td>"+
                                       $"</tr>";
                 }
             }

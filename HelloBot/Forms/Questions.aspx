@@ -80,6 +80,7 @@
                   <tr>
                     <th>ID</th>
                     <th>Content</th>
+                    <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
