@@ -11,9 +11,7 @@ namespace HelloBot.Forms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int questionId;
-            Int32.TryParse(Request.QueryString["dqid"], out questionId);
-
+            int.TryParse(Request.QueryString["dqid"], out int questionId);
             using (DaphneBotEntities ctx = new DaphneBotEntities())
             {
                 var question = ctx.Questions.Where(q => q.id == questionId).FirstOrDefault();
