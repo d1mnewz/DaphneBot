@@ -92,6 +92,26 @@
                 </tbody>
               </table>
               </div>
+    
+    <div>
+            <!-- Responsive table starts here -->
+            <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+            <div class="table-responsive-vertical shadow-z-1">
+            <!-- Table starts here -->
+            <table id="table1" class="table table-hover table-mc-light-blue">
+                <thead>
+                  <tr>
+                    <th>Status ID</th>
+                    <th>User name</th>
+                    <th>Time collected</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                </tbody>
+              </table>
+              </div>
+        </div>
     </form>
             </div>
 				</div>
