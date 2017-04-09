@@ -19,10 +19,11 @@
 		
 		<ul class="nav menu">
 			<li><a href="Index.aspx"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-			<li class="active"><a href="Teams.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Teams</a></li>
+			<li  class="active"><a href="Teams.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Teams</a></li>
             <li><a href="Users.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Users</a></li>
             <li ><a href="Questions.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Questions</a></li>
-            <li ><a href="QAs.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> QAs</a></li>
+             <li ><a href="QAs.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> QAs</a></li>
+
             <li><a href="Statuses.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Statuses</a></li>
             <li><a href="Template.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-calendar"></use></svg> Template</a></li>
 			<li role="presentation" class="divider"></li>
@@ -62,9 +63,64 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Team overview</h1>
+				<h1 class="page-header"><asp:Label runat="server" id="NameLbl" Text=""></asp:Label></h1>
+			</div>
+
+
+        <div>
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Team members</div>
+					<div id="demo">
+<form runat="server">
+            <!-- Responsive table starts here -->
+            <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+            <div class="table-responsive-vertical shadow-z-1">
+            <!-- Table starts here -->
+            <table id="table" class="table table-hover table-mc-light-blue">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nickname</th>
+                    <th>Full name</th>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                    <asp:Label ID="resultStr" runat="server" Text=""></asp:Label>
+                </tbody>
+              </table>
+              </div>
+    
+    <div>
+            <!-- Responsive table starts here -->
+            <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
+            <div class="table-responsive-vertical shadow-z-1">
+            <!-- Table starts here -->
+            <table id="table1" class="table table-hover table-mc-light-blue">
+                <thead>
+                  <tr>
+                    <th>Status ID</th>
+                    <th>User name</th>
+                    <th>Time collected</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                </tbody>
+              </table>
+              </div>
+        </div>
+    </form>
+            </div>
+				</div>
+
 			</div>
 		</div><!--/.row-->
+           
+
+	</div><!--/.row-->
     
         	<script src="../js/jquery-1.11.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
@@ -76,4 +132,3 @@
 		
 </body>
 </html>
-

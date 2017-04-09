@@ -10,33 +10,42 @@
 namespace HelloBot.Forms {
     
     
-    public partial class TeamPage {
+    public partial class UserPage {
         
         /// <summary>
-        /// NameLbl control.
+        /// LoginLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NameLbl;
+        protected global::System.Web.UI.WebControls.Label LoginLbl;
         
         /// <summary>
-        /// resultStr control.
+        /// FNameLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label resultStr;
+        protected global::System.Web.UI.WebControls.Label FNameLbl;
         
         /// <summary>
-        /// Label2 control.
+        /// rolesDDl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.DropDownList rolesDDl;
+        
+        /// <summary>
+        /// SaveBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SaveBtn;
     }
 }

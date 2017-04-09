@@ -25,9 +25,53 @@ namespace HelloBot.Forms
                     resultStr.Text += $"<tr>" +
                                       $"<td data-title='ID'>{item.id}</td>" +
                                       $"<td data-title='team-name' >{item.questionContent}</td>" +
+                                      $"<td class='btn btn-dagner'><a href='Delete.aspx?dqid={item.id}'>Delete</a></td>"+
                                       $"</tr>";
                 }
             }
+        }
+
+        public void onDeleteClick(int id)
+        {
+            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            {
+                var question = ctx.Questions.Where(q => q.id == id).FirstOrDefault();
+                ctx.Questions.Remove(question);
+                ctx.SaveChanges();
+            }
+        }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            addQuestion.Visible = true;
+            addBtn.Visible = true;
+            cancelBtn.Visible = true;
+        }
+
+        protected void addBtn_Click(object sender, EventArgs e)
+        {
+            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            {
+                if (addQuestion.Text != "")
+                {
+                    var question = ctx.Questions.Where(q => q.id == 1).FirstOrDefault();
+                    question.questionContent = addQuestion.Text;
+                    ctx.Questions.Add(question);
+                    ctx.SaveChanges();
+                }
+            }
+            addQuestion.Visible = false;
+            addQuestion.Text = "";
+            addBtn.Visible = false;
+            cancelBtn.Visible = false;
+            Response.Redirect(Request.RawUrl);
+        }
+        protected void cancelBtn_Click(object sender, EventArgs e)
+        {
+            addQuestion.Visible = false;
+            addQuestion.Text = "";
+            addBtn.Visible = false;
+            cancelBtn.Visible = false;
         }
     }
 }

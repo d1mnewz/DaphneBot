@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Questions.aspx.cs" Inherits="HelloBot.Forms.Questions" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserPage.aspx.cs" Inherits="HelloBot.Forms.UserPage" %>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,6 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/datepicker3.css" rel="stylesheet">
 <link href="../css/styles.css" rel="stylesheet">
-    <link href="../css/Table.css" rel="stylesheet">
         <link rel="shortcut icon" href="../images/icon.ico"
         type="image/x-icon" />
 <!--Icons-->
@@ -15,18 +14,16 @@
     <title>DaphneBot</title>
 </head>
 <body runat="server">
-    <form runat="server">
-
    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		
 		<ul class="nav menu">
-			<li><a href="Index.aspx"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-			<li ><a href="Teams.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Teams</a></li>
-            <li ><a href="Users.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Users</a></li>
-            <li class="active"><a href="Questions.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Questions</a></li>
+			<li ><a href="Index.aspx"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+			<li><a href="Teams.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Teams</a></li>
+            <li><a href="Users.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Users</a></li>
+            <li ><a href="Questions.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> Questions</a></li>
             <li ><a href="QAs.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user""></use></svg> QAs</a></li>
             <li><a href="Statuses.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Statuses</a></li>
-            <li><a href="Template.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-calendar"></use></svg> Template</a></li>
+            <li class="active"><a href="Template.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-calendar"></use></svg> Template</a></li>
 			<li role="presentation" class="divider"></li>
 			<li><a href="LoginForm.aspx"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Login Page</a></li>
 		</ul>
@@ -42,7 +39,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-                <a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
+				<a class="navbar-brand" href="#"><span>daphne</span>Bot</a>
+                
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
@@ -60,57 +58,35 @@
 
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		
-		
+		<form runat="server">
 		<div class="row">
 			<div class="col-lg-12">
+				<h1 class="page-header"><asp:Label ID="LoginLbl" runat="server" Text=""></asp:Label></h1>
+                <div class="row">
+                    <div class="table-responsive-vertical shadow-z-1">
+                        <div id="demo" style="margin:1%">
+                    <h2><asp:Label Text="Full name: " runat="server" ID="FNameLbl"></asp:Label></h2>
+                    
+                    <asp:DropDownList runat="server" CssClass="form-control" ID="rolesDDl" Width="15%">
+
+                    </asp:DropDownList>
+                            <div style="margin-top:1%">
+                    <asp:Button ID="SaveBtn" CssClass="btn btn-primary" runat="server" Text="Save" OnClick="SaveBtn_Click"></asp:Button>
+                                </div>
+                            </div>
+                         </div>
+                </div>
 			</div>
 		</div><!--/.row-->
-        <div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">Questions</div>
-					<div id="demo">
-
-            <!-- Responsive table starts here -->
-            <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
-            <div class="table-responsive-vertical shadow-z-1">
-            <!-- Table starts here -->
-            <table id="table" class="table table-hover table-mc-light-blue">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Content</th>
-                    <th>Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <asp:Label ID="resultStr" runat="server" Text=""></asp:Label>
-                </tbody>
-              </table>
-
-               <asp:Button runat="server" href="SetQuestions.aspx" class="btn btn-primary" Text="Add question" ID="AddQuestionBtn" OnClick="Unnamed_Click"></asp:Button>
-      
-              </div>
-              <div>
-                  <asp:TextBox CssClass="form-control" runat="server" Visible="false"  ID="addQuestion"></asp:TextBox>
-                  <asp:Button CssClass="btn btn-primary" Text="Add" Visible="false" ID="addBtn" runat="server" OnClick="addBtn_Click"/>
-                  <asp:Button CssClass="btn btn-primary" Text="Cancel" Visible="false" ID="cancelBtn" runat="server" OnClick="cancelBtn_Click"/>
-              </div>
-            </div>
-				</div>
-			</div>
-		</div><!--/.row-->	
-    </div><!--/.row-->	
-    
-    <script src="../js/jquery-1.11.1.min.js"></script>
+    </form>
+        	<script src="../js/jquery-1.11.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/chart.min.js"></script>
 	<script src="../js/chart-data.js"></script>
 	<script src="../js/easypiechart.js"></script>
 	<script src="../js/easypiechart-data.js"></script>
 	<script src="../js/bootstrap-datepicker.js"></script>
-	<script src="../js/bootstrap-table.js"></script>
-</form>
+	</div>
 </body>
 </html>
 
