@@ -20,7 +20,7 @@ namespace HelloBot.Forms
                                       $"<td>{item.id}</td>" +
                                       $"<td><a href='TeamPage.aspx?tid={item.Team.id}'>{item.Team.teamName}</a></td>" +
                                       $"<td><a href='UserPage.aspx?uid={item.id}'>{item.userName}</a></td>" +
-                                      $"<td>{item.fullName}</td>" +
+                                      $"<td><a href='UserPage.aspx?uid={item.id}'>{item.fullName}</a></td>" +
                                       $"</tr>";
                 }
             }
