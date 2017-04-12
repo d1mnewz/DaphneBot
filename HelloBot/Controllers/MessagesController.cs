@@ -4,91 +4,83 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.UI.WebControls;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
+using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
-
+using System.Linq;
+using SlackAPI;
+using Microsoft.Bot.Builder.FormFlow.Advanced;
 
 namespace HelloBot
-{
+    {
+
+
+
     [Serializable]
-    public class UserStatus
+    public class DialogAnswer
     {
-        public Dictionary<int ,string> questions;
-        public Dictionary<int, string> answers;
+        [Prompt("What have you already done?")]
+        public string Done { get; set; }
+        [Prompt("What will you do?")]
+        public string WillDo { get; set; }
+        [Prompt("What problems do you have?")]
+        public string Problems { get; set; }
 
-        public void fillQuestions()
+        public static IForm<DialogAnswer> BuildForm()
         {
-            questions.Add(1, "what you gonna do when they come for you?");
-            questions.Add(2, "bad boyz, bad boyz");
-            questions.Add(3, "what you gonna do when they come for you?");
+            async Task<bool> SaveToDb(IDialogContext ctx, DialogAnswer state)
+            {
+                using (DaphneBotEntities db = new DaphneBotEntities())
+                {
+                    // if status has no answers, then do 
+                    db.QAs.Add(new QA() { answer = state.Done, questionId = 1, whenCollected = DateTime.Now, statusId = 1/* to define to what status is this answer*/ });
+                    db.QAs.Add(new QA() { answer = state.WillDo, questionId = 2, whenCollected = DateTime.Now, statusId = 1/* to define to what status is this answer*/ });
+                    db.QAs.Add(new QA() { answer = state.Problems, questionId = 3, whenCollected = DateTime.Now, statusId = 1/* to define to what status is this answer*/ });
+                    db.SaveChanges();
+                    
+                    return true;
+                    // else return false;
+                }
+            }
+            OnCompletionAsyncDelegate<DialogAnswer> saveState = async (context, state) =>
+            {
+                if (await SaveToDb(context, state))
+                    await context.PostAsync("Your status was saved");
+                else await context.PostAsync("Something went wrong and your status wasn't saved :(");
+            };
+
+            return new FormBuilder<DialogAnswer>()
+                    .Message("Welcome to the simple Status writing Daphne bot!")
+                    .OnCompletion(saveState)
+                    .Build();
+        }
         }
 
-        public static IForm<UserStatus> BuildStatus()
+        public class MessagesController : ApiController
         {
-            return new FormBuilder<UserStatus>().Message("Ok, now you need to ask some questions :)").Build();
-        }
-    }
-
-    [BotAuthentication]
-    public class MessagesController : ApiController
-    {
-        internal static IDialog<UserStatus> MakeRootDialog()
-        {
-            return Chain.From(() => FormDialog.FromForm(UserStatus.BuildStatus));
-        }
-
-        /// <summary>
-        /// POST: api/Messages
-        /// Receive a message from a user and reply to it
-        /// </summary>
-        /// 
-        ///
-        [ResponseType(typeof(void))]
-        public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
-        {
-            if (activity.Type == ActivityTypes.Message)
+            public static IDialog<DialogAnswer> MakeRoot()
             {
-                //await Conversation.SendAsync(activity, MakeRootDialog);
-            }
-            else
-            {
-                HandleSystemMessage(activity);
-            }
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            return response;
-        }
-
-        #region system messages
-        private Activity HandleSystemMessage(Activity message)
-        {
-            if (message.Type == ActivityTypes.DeleteUserData)
-            {
-                // Implement user deletion here
-                // If we handle user deletion, return a real message
-            }
-            else if (message.Type == ActivityTypes.ConversationUpdate)
-            {
-                // Handle conversation state changes, like members being added and removed
-                // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
-                // Not available in all channels
-            }
-            else if (message.Type == ActivityTypes.ContactRelationUpdate)
-            {
-                // Handle add/remove from contact lists
-                // Activity.From + Activity.Action represent what happened
-            }
-            else if (message.Type == ActivityTypes.Typing)
-            {
-                // Handle knowing tha the user is typing
-            }
-            else if (message.Type == ActivityTypes.Ping)
-            {
+                return Chain.From(() => FormDialog.FromForm(DialogAnswer.BuildForm));
             }
 
-            return null;
+            [BotAuthentication]
+            public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
+            {
+                {
+                    if (activity.Type == ActivityTypes.Message)
+                    {
+                        await Microsoft.Bot.Builder.Dialogs.Conversation.SendAsync(activity, MakeRoot);
+                    }
+                    else
+                    {
+
+                        // HandleSystemMessage(activity);
+                    }
+                    var response = Request.CreateResponse(HttpStatusCode.OK);
+                    return response;
+                }
+            }
         }
-#endregion
-    }
 }
