@@ -4,91 +4,77 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.UI.WebControls;
 using Microsoft.Bot.Connector;
-using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
+using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
-
-
+using System.Linq;
 namespace HelloBot
-{
-    [Serializable]
-    public class UserStatus
     {
-        public Dictionary<int ,string> questions;
-        public Dictionary<int, string> answers;
 
-        public void fillQuestions()
+
+
+        [Serializable]
+        public class DialogAnswer
         {
-            questions.Add(1, "what you gonna do when they come for you?");
-            questions.Add(2, "bad boyz, bad boyz");
-            questions.Add(3, "what you gonna do when they come for you?");
+        // TODO:
+        // write the same IForm<CompleteStatus> BuildForm() for entity class which i will get from master 
+        // and fill fields from entity(or some model class* optionally) - that`s getting questions from database
+        // and save changes in database context in saveState function
+        //public List<string> l = new List<string>(); // TO DO from GetQuestions
+        public string First { get; set; }
+        public string Second { get; set; }
+        public List<Question> Questions { get 
+        {
+                using (var ctx = new DaphneBotEntities())
+                {
+                    return (from temp in ctx.Questions select temp).ToList();
+                }
+            }
+        }
+        public static IForm<DialogAnswer> BuildForm()
+        {
+            OnCompletionAsyncDelegate<DialogAnswer> saveState = async (context, state) =>
+            {
+            // to implement saving state to database:
+            // add fields (state) to db context and save it
+            
+            await context.PostAsync("some message");
+            
+            // throw notimplementedexception
+
+        };
+            return new FormBuilder<DialogAnswer>()
+                    .Message("Welcome to the simple Status writing Daphne bot!")
+                    .OnCompletion(saveState)
+                    .Build();
+        }
         }
 
-        public static IForm<UserStatus> BuildStatus()
+        public class MessagesController : ApiController
         {
-            return new FormBuilder<UserStatus>().Message("Ok, now you need to ask some questions :)").Build();
-        }
-    }
-
-    [BotAuthentication]
-    public class MessagesController : ApiController
-    {
-        internal static IDialog<UserStatus> MakeRootDialog()
-        {
-            return Chain.From(() => FormDialog.FromForm(UserStatus.BuildStatus));
-        }
-
-        /// <summary>
-        /// POST: api/Messages
-        /// Receive a message from a user and reply to it
-        /// </summary>
-        /// 
-        ///
-        [ResponseType(typeof(void))]
-        public async Task<HttpResponseMessage> Post([FromBody]Activity activity)
-        {
-            if (activity.Type == ActivityTypes.Message)
+            public static IDialog<DialogAnswer> MakeRoot()
             {
-                //await Conversation.SendAsync(activity, MakeRootDialog);
-            }
-            else
-            {
-                HandleSystemMessage(activity);
-            }
-            var response = Request.CreateResponse(HttpStatusCode.OK);
-            return response;
-        }
-
-        #region system messages
-        private Activity HandleSystemMessage(Activity message)
-        {
-            if (message.Type == ActivityTypes.DeleteUserData)
-            {
-                // Implement user deletion here
-                // If we handle user deletion, return a real message
-            }
-            else if (message.Type == ActivityTypes.ConversationUpdate)
-            {
-                // Handle conversation state changes, like members being added and removed
-                // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
-                // Not available in all channels
-            }
-            else if (message.Type == ActivityTypes.ContactRelationUpdate)
-            {
-                // Handle add/remove from contact lists
-                // Activity.From + Activity.Action represent what happened
-            }
-            else if (message.Type == ActivityTypes.Typing)
-            {
-                // Handle knowing tha the user is typing
-            }
-            else if (message.Type == ActivityTypes.Ping)
-            {
+                return Chain.From(() => FormDialog.FromForm(DialogAnswer.BuildForm));
             }
 
-            return null;
+            [BotAuthentication]
+            public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
+            {
+                {
+                    if (activity.Type == ActivityTypes.Message)
+                    {
+                        await Conversation.SendAsync(activity, MakeRoot);
+                    }
+                    else
+                    {
+
+                        // HandleSystemMessage(activity);
+                    }
+                    var response = Request.CreateResponse(HttpStatusCode.OK);
+                    return response;
+                }
+            }
         }
-#endregion
-    }
 }
