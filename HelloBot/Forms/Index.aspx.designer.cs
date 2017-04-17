@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HelloBot.Controllers {
+namespace HelloBot.Forms {
     
     
     public partial class WebForm1 {
