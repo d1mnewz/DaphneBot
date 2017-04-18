@@ -23,16 +23,27 @@ namespace HelloBot.Forms
                 foreach (var item in ctx.QAs)
                 {
 
-                    resultStr.Text += $"<tr>" +
-                                      $"<td data-title='ID'>{item.id}</td>" +
-                                      $"<td data-title='team-name' >{item.Question.questionContent}</td>" +
-                                      $"<td data-title='team-name' >{item.answer}</td>" +
-                                      $"<td data-title='team-name' >{item.whenCollected}</td>" +
-                                      $"<td data-title='team-name' >{item.statusId}</td>" +
-
-                                      $"</tr>";
+                    resultStr.Text += $"<div></div>" +
+                        $"<table id='table' class='table table-hover table - mc - light - blue'><tr>" +
+                        $"<thead>< tr >< th > ID </ th >< th > Question </ th >< th > Answer </ th > " +
+                        $"< th >Collected </ th > < th > Status ID </ th ></ tr ></ thead > "+
+                        $"<td data-title='ID'>{item.id}</td>" +
+                        $"<td data-title='team-name' >{item.Question.questionContent}</td>" +
+                        $"<td data-title='team-name' >{item.answer}</td>" +
+                        $"<td data-title='team-name' >{item.whenCollected}</td>" +
+                        $"<td data-title='team-name' >{item.statusId}</td>" +
+                        $"</tbody></ table ></tr>";
                 }
             }
+        }
+        public string GetStatusData(int id)
+        { 
+            using (DaphneBotEntities ctx = new DaphneBotEntities())
+            {
+                var status = ctx.Statuses.Where(s => s.userId == id).FirstOrDefault();
+                return status.User.userName+"     "+status.whenToCollect;
+            }
+            
         }
     }
 }
