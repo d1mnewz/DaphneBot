@@ -10,6 +10,8 @@ using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
 using System.Linq;
+using Microsoft.Bot.Builder.FormFlow.Advanced;
+
 namespace HelloBot
     {
 
@@ -32,9 +34,11 @@ namespace HelloBot
                     return (from temp in ctx.Questions select temp).ToList();
                 }
             }
+            
         }
         public static IForm<DialogAnswer> BuildForm()
         {
+            
             OnCompletionAsyncDelegate<DialogAnswer> saveState = async (context, state) =>
             {
             // to implement saving state to database:
@@ -45,8 +49,10 @@ namespace HelloBot
             // throw notimplementedexception
 
         };
+            Field<DialogAnswer> f = new Field<DialogAnswer>("something_0" , FieldRole.Value);
+            //f.AddDescription*
             return new FormBuilder<DialogAnswer>()
-                    .Message("Welcome to the simple Status writing Daphne bot!")
+                    .Message("Welcome to the simple Status writing Daphne bot!").Field(f)
                     .OnCompletion(saveState)
                     .Build();
         }
