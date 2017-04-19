@@ -38,7 +38,7 @@ namespace HelloBot
                     .OnCompletion(saveState)
                     .Build();
         }
-        async Task<bool> SaveToDb(IDialogContext ctx, DialogAnswer state)
+        bool SaveToDb(IDialogContext ctx, DialogAnswer state)
         {
             using (DaphneBotEntities db = new DaphneBotEntities())
             {
@@ -59,7 +59,7 @@ namespace HelloBot
         {
             saveState = async (context, state) =>
             {
-                if (await SaveToDb(context, state))
+                if (SaveToDb(context, state))
                     await context.PostAsync("Your status was saved");
                 else await context.PostAsync("Something went wrong and your status wasn't saved :(");
             };
