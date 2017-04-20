@@ -14,7 +14,7 @@ using SlackAPI;
 using Microsoft.Bot.Builder.FormFlow.Advanced;
 
 namespace HelloBot
-    {
+{
 
 
 
@@ -30,9 +30,6 @@ namespace HelloBot
 
         public static IForm<DialogAnswer> BuildForm()
         {
-            
-            
-
             return new FormBuilder<DialogAnswer>()
                     .Message("Welcome to the simple Status writing Daphne bot!")
                     .OnCompletion(saveState)
@@ -66,29 +63,29 @@ namespace HelloBot
         }
     }
 
-        public class MessagesController : ApiController
+    public class MessagesController : ApiController
+    {
+        public static IDialog<DialogAnswer> MakeRoot()
         {
-            public static IDialog<DialogAnswer> MakeRoot()
-            {
-                return Chain.From(() => FormDialog.FromForm(DialogAnswer.BuildForm));
-            }
+            return Chain.From(() => FormDialog.FromForm(DialogAnswer.BuildForm));
+        }
 
-            [BotAuthentication]
-            public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
+        [BotAuthentication]
+        public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
+        {
             {
+                if (activity.Type == ActivityTypes.Message)
                 {
-                    if (activity.Type == ActivityTypes.Message)
-                    {
-                        await Microsoft.Bot.Builder.Dialogs.Conversation.SendAsync(activity, MakeRoot);
-                    }
-                    else
-                    {
-
-                        // HandleSystemMessage(activity);
-                    }
-                    var response = Request.CreateResponse(HttpStatusCode.OK);
-                    return response;
+                    await Microsoft.Bot.Builder.Dialogs.Conversation.SendAsync(activity, MakeRoot);
                 }
+                else
+                {
+
+                    // HandleSystemMessage(activity);
+                }
+                var response = Request.CreateResponse(HttpStatusCode.OK);
+                return response;
             }
         }
+    }
 }
