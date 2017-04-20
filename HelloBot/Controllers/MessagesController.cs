@@ -14,7 +14,7 @@ using SlackAPI;
 using Microsoft.Bot.Builder.FormFlow.Advanced;
 
 namespace HelloBot
-    {
+{
 
 
 
@@ -30,14 +30,35 @@ namespace HelloBot
 
         public static IForm<DialogAnswer> BuildForm()
         {
-            
-            
+
+            async Task<bool> SaveToDb(IDialogContext ctx, DialogAnswer state)
+            {
+                using (DaphneBotEntities db = new DaphneBotEntities())
+                {
+                    // if status has no answers, then do 
+                    db.QAs.Add(new QA() { answer = state.Done, questionId = 1, whenCollected = DateTime.Now, statusId = 1/* to define to what status is this answer*/ });
+                    db.QAs.Add(new QA() { answer = state.WillDo, questionId = 2, whenCollected = DateTime.Now, statusId = 1/* to define to what status is this answer*/ });
+                    db.QAs.Add(new QA() { answer = state.Problems, questionId = 3, whenCollected = DateTime.Now, statusId = 1/* to define to what status is this answer*/ });
+                    db.SaveChanges();
+
+                    return true;
+                    // else return false;
+                }
+            }
+            OnCompletionAsyncDelegate<DialogAnswer> saveState = async (context, state) =>
+            {
+                if (await SaveToDb(context, state))
+                    await context.PostAsync("Your status was saved");
+                else await context.PostAsync("Something went wrong and your status wasn't saved :(");
+            };
+
 
             return new FormBuilder<DialogAnswer>()
                     .Message("Welcome to the simple Status writing Daphne bot!")
                     .OnCompletion(saveState)
                     .Build();
         }
+
         bool SaveToDb(IDialogContext ctx, DialogAnswer state)
         {
             using (DaphneBotEntities db = new DaphneBotEntities())
@@ -66,16 +87,22 @@ namespace HelloBot
         }
     }
 
-        public class MessagesController : ApiController
+    public class MessagesController : ApiController
+    {
+        public static IDialog<DialogAnswer> MakeRoot()
         {
-            public static IDialog<DialogAnswer> MakeRoot()
-            {
-                return Chain.From(() => FormDialog.FromForm(DialogAnswer.BuildForm));
-            }
+            return Chain.From(() => FormDialog.FromForm(DialogAnswer.BuildForm));
+        }
 
-            [BotAuthentication]
-            public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
+        [BotAuthentication]
+        public virtual async Task<HttpResponseMessage> Post([FromBody] Activity activity)
+        {
             {
+                if (activity.Type == ActivityTypes.Message)
+                {
+                    await Microsoft.Bot.Builder.Dialogs.Conversation.SendAsync(activity, MakeRoot);
+                }
+                else
                 {
                     if (activity.Type == ActivityTypes.Message)
                     {
@@ -84,11 +111,11 @@ namespace HelloBot
                     else
                     {
 
-                        // HandleSystemMessage(activity);
-                    }
-                    var response = Request.CreateResponse(HttpStatusCode.OK);
-                    return response;
+                    // HandleSystemMessage(activity);
                 }
+                var response = Request.CreateResponse(HttpStatusCode.OK);
+                return response;
             }
         }
+    }
 }
