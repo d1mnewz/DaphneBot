@@ -31,7 +31,7 @@
 DROP TABLE IF EXISTS Statuses;
 		
 CREATE TABLE Statuses (
-  id INTEGER NOT NULL IDENTITY(1,1),
+  id INTEGER IDENTITY(1,1),
   userId INTEGER NULL DEFAULT NULL,
   whenToCollect DATETIME NULL DEFAULT NULL ,
   PRIMARY KEY (id)
@@ -47,8 +47,8 @@ DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
   id INTEGER NOT NULL IDENTITY(1,1),
   teamId INTEGER NULL DEFAULT NULL,
-  userName VARCHAR(64) NULL DEFAULT NULL ,
-  fullName VARCHAR(1024) NULL DEFAULT NULL ,
+  userName NVARCHAR(64) NULL DEFAULT NULL ,
+  fullName NVARCHAR(256) NULL DEFAULT NULL ,
   PRIMARY KEY (id)
 ) ;
 
@@ -63,7 +63,7 @@ DROP TABLE IF EXISTS Teams;
 		
 CREATE TABLE Teams (
   id INTEGER NOT NULL IDENTITY(1,1),
-  teamName VARCHAR(256) NULL DEFAULT NULL,
+  teamName NVARCHAR(256) NULL DEFAULT NULL,
   PRIMARY KEY (id)
 );
 
@@ -77,7 +77,7 @@ DROP TABLE IF EXISTS QAs;
 CREATE TABLE QAs (
   id INTEGER NOT NULL IDENTITY(1,1),
   questionId INTEGER NULL DEFAULT NULL,
-  answer VARCHAR(1024) NOT NULL,
+  answer NVARCHAR(1024) NOT NULL,
   statusId INTEGER NULL DEFAULT NULL,
   whenCollected DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (id)
@@ -92,7 +92,7 @@ DROP TABLE IF EXISTS Questions;
 		
 CREATE TABLE Questions (
   id INTEGER NOT NULL IDENTITY(1,1),
-  questionContent VARCHAR(256) NOT NULL,
+  questionContent NVARCHAR(256) NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE Questions (
 DROP TABLE IF EXISTS Roles;
 CREATE TABLE Roles(
 id INTEGER NOT NULL IDENTITY(1,1),
-roleName VARCHAR(32) NOT NULL,
+roleName NVARCHAR(32) NOT NULL,
 PRIMARY KEY(id)
 );
 
@@ -154,13 +154,16 @@ ALTER TABLE Users ADD FOREIGN KEY (roleId) REFERENCES Roles(id);
  ('Random team'),
  ('id_iot')
 
+ INSERT INTO Roles(roleName) VALUES
+ ('User'),
+ ('Admin')
  
  INSERT INTO Users (teamId,userName,fullName) VALUES
  (1,'d1mnewz','Zhluktenko Dmytro'),
  (1, 'alede', 'Demyanenko Alexandr'),
  (1, 'goblimgus', 'Vsevolod Pus`'),
  (1, 'vasyl_dzyuba', 'Vasyl Dzyuba'),
- (1, 'd1', 'bbbb')
+ (2, 'd1', 'bbbb')
 
  INSERT INTO Statuses (userId,whenToCollect) VALUES
  (1,'2017-03-15 00:00:00');
