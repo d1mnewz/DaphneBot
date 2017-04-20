@@ -80,7 +80,6 @@
                   <tr>
                     <th>ID</th>
                     <th>Content</th>
-                    <th>Edit</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
@@ -90,7 +89,7 @@
               </table>
 
                <asp:Button runat="server" href="SetQuestions.aspx" class="btn btn-primary" Text="Add question" ID="AddQuestionBtn" OnClick="Unnamed_Click"></asp:Button>
-               <asp:Button runat="server" href="EditQuestions.aspx" CssClass="btn btn-primary" Text="Edit questions" ID="EditBtn" OnClick="EditBtn_Click"></asp:Button>
+      
               </div>
               <div>
                   <asp:TextBox CssClass="form-control" runat="server" Visible="false"  ID="addQuestion"></asp:TextBox>
