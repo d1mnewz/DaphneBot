@@ -25,6 +25,7 @@ namespace HelloBot.Forms
                     resultStr.Text += $"<tr>" +
                                       $"<td data-title='ID'>{item.id}</td>" +
                                       $"<td data-title='team-name' >{item.questionContent}</td>" +
+                                      $"<td class='btn btn-dagner'><a href='EditQuestions.aspx?qqid={item.id}'>Edit</a></td>"+
                                       $"<td class='btn btn-dagner'><a href='Delete.aspx?dqid={item.id}'>Delete</a></td>"+
                                       $"</tr>";
                 }
@@ -72,6 +73,11 @@ namespace HelloBot.Forms
             addQuestion.Text = "";
             addBtn.Visible = false;
             cancelBtn.Visible = false;
+        }
+
+        protected void EditBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("EditQuestions.aspx");
         }
     }
 }
