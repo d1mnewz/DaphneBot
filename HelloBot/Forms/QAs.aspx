@@ -72,8 +72,20 @@
             <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->
             <div class="table-responsive-vertical shadow-z-1">
             <!-- Table starts here -->
+            <table id="table" class="table table-hover table-mc-light-blue">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Collected</th>
+                    <th>Status ID</th>
+                  </tr>
+                </thead>
+                <tbody>
                     <asp:Label ID="resultStr" runat="server" Text=""></asp:Label>
-
+                </tbody>
+              </table>
               </div>
             </div>
 				</div>
