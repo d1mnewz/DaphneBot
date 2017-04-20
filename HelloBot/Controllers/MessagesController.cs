@@ -31,6 +31,7 @@ namespace HelloBot
         public static IForm<DialogAnswer> BuildForm()
         {
 
+
             async Task<bool> SaveToDb(IDialogContext ctx, DialogAnswer state)
             {
                 using (DaphneBotEntities db = new DaphneBotEntities())
@@ -51,7 +52,6 @@ namespace HelloBot
                     await context.PostAsync("Your status was saved");
                 else await context.PostAsync("Something went wrong and your status wasn't saved :(");
             };
-
 
             return new FormBuilder<DialogAnswer>()
                     .Message("Welcome to the simple Status writing Daphne bot!")
@@ -104,12 +104,6 @@ namespace HelloBot
                 }
                 else
                 {
-                    if (activity.Type == ActivityTypes.Message)
-                    {
-                        await Microsoft.Bot.Builder.Dialogs.Conversation.SendAsync(activity, MakeRoot);
-                    }
-                    else
-                    {
 
                     // HandleSystemMessage(activity);
                 }
@@ -119,3 +113,4 @@ namespace HelloBot
         }
     }
 }
+
