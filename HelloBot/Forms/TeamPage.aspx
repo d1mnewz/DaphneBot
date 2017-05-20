@@ -91,7 +91,6 @@
                 </tbody>
               </table>
               </div>
-    
     <div>
             <!-- Responsive table starts here -->
             <!-- For correct display on small screens you must add 'data-title' to each 'td' in your table -->

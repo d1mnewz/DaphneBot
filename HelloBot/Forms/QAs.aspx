@@ -75,7 +75,6 @@
             <table id="table" class="table table-hover table-mc-light-blue">
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>Question</th>
                     <th>Answer</th>
                     <th>Collected</th>
