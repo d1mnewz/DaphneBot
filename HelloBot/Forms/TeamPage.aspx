@@ -83,7 +83,6 @@
                     <th>ID</th>
                     <th>Nickname</th>
                     <th>Full name</th>
-                    <th>Role</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -103,7 +102,13 @@
                   <tr>
                     <th>Status ID</th>
                     <th>User name</th>
-                    <th>Time collected</th>
+                    <th>Collecting deadline</th>
+                    <th>What you have already done?</th>
+                    <th>Collect time</th>
+                    <th>What will you do?</th>
+                    <th>Collect time</th>
+                    <th>What problems do you have?</th>
+                    <th>Collect time</th>
                   </tr>
                 </thead>
                 <tbody>
