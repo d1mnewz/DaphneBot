@@ -10,7 +10,6 @@ using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.Dialogs;
 using System.Web.Http.Description;
 using System.Linq;
-using SlackAPI;
 using Microsoft.Bot.Builder.FormFlow.Advanced;
 
 namespace HelloBot
@@ -34,7 +33,7 @@ namespace HelloBot
 
 
             return new FormBuilder<DialogAnswer>()
-                    .Message("Welcome to the simple Status writing Daphne bot!")
+                    .Message("Welcome to the simple Status tracking DaphneBot!")
                     .OnCompletion(saveState)
                     .Build();
         }
@@ -60,7 +59,10 @@ namespace HelloBot
             saveState = async (context, state) =>
             {
                 if (SaveToDb(context, state))
-                    await context.PostAsync("Your status was saved");
+                {
+                    await context.PostAsync("Well done! Your status was saved!");
+                    await context.PostAsync(@"/remind Don't forget about status tracking! 27/05/2017 1:00 PM");
+                }
                 else await context.PostAsync("Something went wrong and your status wasn't saved :(");
             };
         }
