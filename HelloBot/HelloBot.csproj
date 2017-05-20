@@ -154,6 +154,7 @@
     <Content Include="Forms\EditQuestions.aspx" />
     <Content Include="Forms\LoginForm.aspx" />
     <Content Include="Forms\QAs.aspx" />
+    <Content Include="Forms\QAsById.aspx" />
     <Content Include="Forms\Questions.aspx" />
     <Content Include="css\SetQuestions.aspx" />
     <Content Include="Forms\Statuses.aspx" />
@@ -245,6 +246,13 @@
     </Compile>
     <Compile Include="Forms\QAs.aspx.designer.cs">
       <DependentUpon>QAs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QAsById.aspx.cs">
+      <DependentUpon>QAsById.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\QAsById.aspx.designer.cs">
+      <DependentUpon>QAsById.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Questions.aspx.cs">
       <DependentUpon>Questions.aspx</DependentUpon>

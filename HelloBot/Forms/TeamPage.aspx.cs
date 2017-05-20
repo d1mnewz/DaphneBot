@@ -10,21 +10,21 @@ namespace HelloBot.Forms
     public partial class TeamPage : System.Web.UI.Page
     {
         List<int> memberIds = new List<int>();
-        int teamId = 0;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int teamId = 0;
             Int32.TryParse(Request.QueryString["tid"], out teamId);
-            FillTeamMembersTable();
+            FillTeamMembersTable(teamId);
             fillStatusesTable();
         }
 
 
-        public void FillTeamMembersTable()
+        public void FillTeamMembersTable(int id)
         {
             using (DaphneBotEntities ctx = new DaphneBotEntities())
             {
-                var team = ctx.Teams.Where(t => t.id == teamId).FirstOrDefault();
+                var team = ctx.Teams.Where(t => t.id == id).FirstOrDefault();
                 try
                 {
                     NameLbl.Text = team.teamName;
@@ -41,10 +41,10 @@ namespace HelloBot.Forms
                       
                         memberIds.Add(u.id);
                         resultStr.Text += $"<tr>" +
-                            $"<td data-title='ID'>{u.id}</td>" +
-                            $"<td data-title='ID'><a href='UserPage.aspx?uid={u.id}'>{u.userName}</a></td>" +
-                            $"<td data-title='ID'>{u.fullName}</td>" +
-                            $"<td>{getRoleName(u.roleId ?? default(int))}</td> </tr>";
+                                          $"<td data-title='ID'>{u.id}</td>" +
+                                          $"<td data-title='ID'><a href='UserPage.aspx?uid={u.id}'>{u.userName}</a></td>" +
+                                          $"<td data-title='ID'>{u.fullName}</td>"; //+
+                        // $"<td>{getRoleName(u.roleId)}</td> </tr>";
                     }
 
                 }

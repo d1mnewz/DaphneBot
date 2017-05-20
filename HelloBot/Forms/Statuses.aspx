@@ -80,6 +80,7 @@
                     <th>ID</th>
                     <th>User</th>
                     <th>Collecting Deadline</th>
+                    <th>Collected</th>
                   </tr>
                 </thead>
                 <tbody>
